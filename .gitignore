@@ -1,0 +1,4 @@
+#Para instalar as depencias do composer, basta rodar o seguinte comando: composer install
+composer.lock
+vendor
+.env
