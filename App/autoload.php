@@ -3,7 +3,7 @@
         function($class) {
             $file = __DIR__ . "/" . $class . ".php";
             $file = str_replace("\\", "/", $file);
-            var_dump($file);
+            
             if(file_exists($file) && !is_dir($file)) {
                 include $file;                
             } else {

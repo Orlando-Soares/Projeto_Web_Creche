@@ -1,5 +1,11 @@
+#Proteção do arquivo .env
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
 # Não listar diretórios caso não encontre um index.php 
-Options -Indexes
+#Options -Indexes
 
 # Ativação do RewriteEngine que nos permite gerenciar as rotas
 RewriteEngine On
@@ -9,13 +15,8 @@ RewriteBase /
 
 # Se o diretório ou arquivos digitados na URL não existirem, seguir a RewriteRule
 #RewriteCond %{REQUEST_FILENAME} !-d       
-#RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-f
 
 # Rewrite Rule, redirecionar todas as requests para o index.php 
-RewriteRule ^(.+)$ index.php [QSA,L]
-
-#Proteção do arquivo .env
-<Files .env>
-    Order allow,deny
-    Deny from all
-</Files>
+RewriteRule ^(.*)$ Projeto_Web_Creche/index.php [NC,QSA]
+RewriteRule app Projeto_Web_Creche/index.php [NC,QSA]
